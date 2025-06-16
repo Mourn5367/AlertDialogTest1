@@ -36,16 +36,24 @@ public class MainActivity extends AppCompatActivity {
                 final int[] imgList = {R.drawable.real,R.drawable.yes,R.drawable.no};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("안녕하세요");
-                dlg.setItems(itemsList, new DialogInterface.OnClickListener() {
+                dlg.setSingleChoiceItems(itemsList, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         btn1.setText(itemsList[which]);
                         imgView.setImageResource(imgList[which]);
                     }
                 });
+//                dlg.setItems(itemsList, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(itemsList[which]);
+//                        imgView.setImageResource(imgList[which]);
+//                    }
+//                });
                 //dlg.setMessage("반갑습니다.");
                 dlg.setIcon(R.drawable.real);
                 dlg.setPositiveButton("닫기", null);
+
 //                dlg.setNegativeButton("취소", new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
