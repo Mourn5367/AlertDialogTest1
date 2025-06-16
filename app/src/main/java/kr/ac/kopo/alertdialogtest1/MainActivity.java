@@ -34,15 +34,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String[] itemsList = {"SF6","TK8","GGST"};
                 final int[] imgList = {R.drawable.real,R.drawable.yes,R.drawable.no};
+                final boolean[] checkList = {true,false,false};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("안녕하세요");
-                dlg.setSingleChoiceItems(itemsList, 0, new DialogInterface.OnClickListener() {
+                dlg.setMultiChoiceItems(itemsList, checkList, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        btn1.setText(itemsList[which]);
-                        imgView.setImageResource(imgList[which]);
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                        if (isChecked)
+                        {
+                            btn1.setText(itemsList[which]);
+                            imgView.setImageResource(imgList[which]);
+                        }
                     }
                 });
+//                dlg.setSingleChoiceItems(itemsList, 0, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(itemsList[which]);
+//                        imgView.setImageResource(imgList[which]);
+//                    }
+//                });
 //                dlg.setItems(itemsList, new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
